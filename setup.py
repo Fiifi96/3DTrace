@@ -8,7 +8,7 @@ import re
             #get-ip.py
 
 # The destination for the traceroute command
-destination = "morrocco.com"
+destination = "youtube.com"
 
 # Run traceroute command
 traceroute_result = os.popen(f"traceroute {destination}").read()
@@ -17,7 +17,7 @@ traceroute_result = os.popen(f"traceroute {destination}").read()
 with open("ip.txt", "w") as file:
     file.write(traceroute_result)
 
-print ('Done!')
+print ('Got route IP!')
 #*************************************************************************
             # extract.py
 
@@ -53,7 +53,7 @@ with open('traceroute.txt', 'w') as f:
 
 
 # Define the filename of the data file
-data_file = 'traceroute.txt'  # replace with your data filename
+data_file = 'traceroute.txt'  # File containing the IP addresses
 
 # Read the file
 with open(data_file, 'r') as f:
@@ -63,7 +63,7 @@ with open(data_file, 'r') as f:
 ip_addresses_str = '[' + ', '.join(f'"{ip}"' for ip in ip_addresses) + ']'
 
 # Define the filename of the Python file to modify
-python_file = 'map.py'  # replace with your Python filename
+python_file = 'map4.py'  # File containing the MAP code
 
 # Read the Python file
 with open(python_file, 'r') as f:
@@ -76,8 +76,7 @@ python_script = re.sub(r'traceroute_log = \[.*?\]', f'traceroute_log = {ip_addre
 with open(python_file, 'w') as f:
     f.write(python_script)
 
-print ('Put desired IP from traceroute into the last python file Done!')
+print ('Put desired IP from traceroute into map4.py')
 
 #*************************************************************************
 
- 

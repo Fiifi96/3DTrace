@@ -2,7 +2,6 @@ import requests
 import simplekml
 import os
 
-
 # Function to get location of an IP address
 def get_ip_location(ip_address, token):
     url = f"https://ipinfo.io/{ip_address}?token={token}"
@@ -16,8 +15,7 @@ def get_ip_location(ip_address, token):
         return 0.0, 0.0
 
 # Traceroute log data: replace with actual data
-traceroute_log = ["104.19.244.20", "10.253.156.1", "172.103.80.169", "172.103.80.169", "64.186.0.77", "64.186.0.77", "206.223.118.145", "172.71.172.2", "172.71.172.2", "141.101.74.100", "141.101.74.100", "172.71.168.2", "172.71.168.2", "104.19.244.20", "104.19.244.20"]
-
+traceroute_log = ["142.250.68.142", "10.253.156.1", "172.103.80.169", "172.103.80.169", "64.186.0.77", "64.186.0.77", "72.14.196.102", "72.14.196.102", "142.251.60.44", "142.251.60.44", "72.14.237.47", "72.14.237.47", "108.170.240.129", "108.170.240.129", "142.250.68.142"]
 
 # Token for accessing ipinfo.io
 token = "9be5108549bfcb"
@@ -30,11 +28,18 @@ kml = simplekml.Kml()
 
 # Add each location to the KML as a placemark
 for i, (lat, lon) in enumerate(locations, start=1):
-    kml.newpoint(name=f"Hop {i}", coords=[(lon, lat)])  # Note that lon is before lat in coordinates
+    pnt = kml.newpoint(name=f"Hop {i}", coords=[(lon, lat)])  # Note that lon is before lat in coordinates
+    if i == 1:
+        pnt.style.iconstyle.color = simplekml.Color.blue  # Set the color of the first hop to blue
+    if i == len(locations):  # If this is the last hop
+        pnt.style.iconstyle.color = simplekml.Color.red  # Set the color of the last hop to red
 
 # Create a linestring (path) connecting all the locations
 linestring = kml.newlinestring(name="Path")
 linestring.coords = [(lon, lat) for lat, lon in locations]
+
+# Set the line color to red
+linestring.style.linestyle.color = simplekml.Color.red
 
 # Save the KML
 kml.save("traceroute.kml")
