@@ -1,4 +1,5 @@
-** Python IP Traceroute Visualizer
+** Python IP Traceroute Visualizer **
+
 This project contains three Python scripts that perform the task of tracing internet packet routes, identifying IP addresses in the path, fetching their geographical locations, and visualizing the path on a map.
 
 Project Files
