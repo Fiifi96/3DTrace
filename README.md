@@ -1,6 +1,6 @@
 # Python IP Traceroute Visualizer
 
-This project contains three Python scripts that perform the task of tracing internet packet routes, identifying IP addresses in the path, fetching their geographical locations, and visualizing the path on a map.
+This project contains three Python scripts that perform the task of tracing internet packet routes, identifying IP addresses in the path, fetching their geographical locations, and visualizing the path on a map. By default the website is set to ghana.com
 
 ![Alt text](tracemap.png)
 
