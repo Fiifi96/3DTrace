@@ -14,7 +14,7 @@ This script reads the IP addresses from the traceroute.txt file, fetches their g
 # main.py: 
 This is the main script that triggers the execution of setup.py and map4.py.
 
-# How to Run To run the scripts, simply execute the main.py file:
+# How to Run To run the scripts, simply change the destination to the IP address of website you want to go to in setup.py and execute the main.py file:
 
 python3 main.py
 
