@@ -2,6 +2,8 @@
 
 This project contains three Python scripts that perform the task of tracing internet packet routes, identifying IP addresses in the path, fetching their geographical locations, and visualizing the path on a map.
 
+![Alt text](tracemap.png)
+
 # Project Files 
 # setup.py: 
 This script executes a traceroute command and writes the output into an ip.txt file. It then extracts the IP addresses, formats them into a list of strings, and writes these IP addresses into the map4.py script.
