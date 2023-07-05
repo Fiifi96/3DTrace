@@ -8,7 +8,7 @@ import re
             #get-ip.py
 
 # The destination for the traceroute command
-destination = "youtube.com"
+destination = "ghana.com"
 
 # Run traceroute command
 traceroute_result = os.popen(f"traceroute {destination}").read()
@@ -72,7 +72,7 @@ with open(python_file, 'r') as f:
 # Substitute the traceroute_log definition
 python_script = re.sub(r'traceroute_log = \[.*?\]', f'traceroute_log = {ip_addresses_str}', python_script, flags=re.DOTALL)
 
-# Write the modified Python script back to the file
+# Writes the traceroute.txt into map4.py script 
 with open(python_file, 'w') as f:
     f.write(python_script)
 
